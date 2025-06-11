@@ -15,19 +15,19 @@ void    swap(t_node **stack)
 void	do_sa(t_stack **stacks)
 {
 	swap(&((*stacks)->a));
-	write(1, "sa\n", 4);
+	write(1, "sa\n", 3);
 }
 
 void	do_sb(t_stack **stacks)
 {
 	swap(&((*stacks)->b));
-	write(1, "sb\n", 4);
+	write(1, "sb\n", 3);
 }
 
 void	do_ss(t_stack **stacks)
 {
 	swap(&((*stacks)->a));
     swap(&((*stacks)->b));
-	write(1, "ss\n", 4);
+	write(1, "ss\n", 3);
 }
 

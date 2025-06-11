@@ -15,11 +15,11 @@ void push(t_node **src, t_node **dst)
 void	do_pa(t_stack **stacks)
 {
 	push(&(*stacks)->b, &(*stacks)->a);
-	write(1, "pa\n", 4);
+	write(1, "pa\n", 3);
 }
 
 void	do_pb(t_stack **stacks)
 {
 	push(&(*stacks)->a, &(*stacks)->b);
-	write(1, "pb\n", 4);
+	write(1, "pb\n", 3);
 }

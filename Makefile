@@ -18,7 +18,7 @@ MID_GRAY =		\033[38;5;245m
 DARK_GREEN =	\033[38;2;75;179;82m
 DARK_YELLOW =	\033[38;5;143m
 
-SRCS = main.c rev_rot.c fill_stacks.c sort.c swap.c ft_split.c ft_atoi.c rotate.c indexs.c moves.c positions.c push_stack.c push_swap_utils.c
+SRCS = main.c rev_rot.c fill_stacks.c sort.c swap.c ft_split.c ft_atoi.c rotate.c indexs.c moves.c positions.c push_stack.c aux.c
 
 INCLUDE = ./push_swap.h
 

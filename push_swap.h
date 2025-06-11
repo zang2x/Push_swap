@@ -27,7 +27,7 @@ t_node *newnumb(int nb);
 void    addnumb(t_stack **stacks, t_node *new_node);
 t_node  *get_lastnb(t_node *node, int n);
 int     stack_size(t_node *stack);
-int    duplicated(t_stack **stacks);
+int    duplicated(t_node *stack);
 void    getnumbers(char *args, t_stack **stacks);
 void    set_index(t_node *stack);
 void	sort_three(t_stack **stack);
@@ -65,5 +65,7 @@ int	abn(int nb);
 void	do_move(t_stack **stacks, int cost_a, int cost_b);
 void    swap(t_node **stack);
 void	free_stack(t_node **stack);
+void	free_exit(t_stack **stacks, char **tmp);
+void	free_tmp(char **tmp);
 
 #endif

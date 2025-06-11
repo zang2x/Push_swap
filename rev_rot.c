@@ -20,18 +20,18 @@ void rev_rotate(t_node **stack)
 void	do_rra(t_stack **stacks)
 {
 	rev_rotate(&((*stacks)->a));
-	write(1, "rra\n", 5);
+	write(1, "rra\n", 4);
 }
 
 void	do_rrb(t_stack **stacks)
 {
 	rev_rotate(&((*stacks)->b));
-	write(1, "rrb\n", 5);
+	write(1, "rrb\n", 4);
 }
 
 void	do_rrr(t_stack **stacks)
 {
 	rev_rotate(&((*stacks)->a));
 	rev_rotate(&((*stacks)->b));
-	write(1, "rrr\n", 5);
+	write(1, "rrr\n", 4);
 }

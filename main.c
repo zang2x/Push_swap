@@ -19,13 +19,17 @@ int	ft_strlen(const char *s)
 	return (i);
 }
 
-long	valid_input(char	*str)
+int	valid_input(char	*str)
 {
 	int	i;
 
 	i = 0;
-	if ((str[i] == '-' || str[i] == '+') && (ft_strlen(str) > 1))
+    if (!str || str[0] == '\0')
+            return (0);
+	if ((str[i] == '-' || str[i] == '+'))
 		i++;
+    if (str[i] == '\0')
+		    return (0);
 	while (str[i] != '\0')
 	{
 		if (str[i] < '0' || str[i] > '9')
@@ -56,12 +60,12 @@ void    push_swap(t_stack **stacks)
         sort(stacks);
 }
 
-int    duplicated(t_stack **stacks)
+int    duplicated(t_node *stack)
 {
     t_node *tmp;
     t_node *tmp2;
 
-    tmp = (*stacks)->a;
+    tmp = stack;
     while(tmp)
     {
         tmp2 = tmp->next;
@@ -90,13 +94,14 @@ void    getnumbers(char *args, t_stack **stacks)
         {
             nb = ft_atoi(tmp[i]);
             if(nb > INT_MAX || nb < INT_MIN)
-                exit(1); //cambiar
+                    free_exit(stacks, tmp);
             addnumb(stacks, newnumb(nb));
         }
-        free(tmp[i]);
+        else
+            free_exit(stacks, tmp);
         i++;
     }
-    free(tmp);
+    free_tmp(tmp);
 }
 int main(int argc, char **argv)
 {
@@ -114,13 +119,14 @@ int main(int argc, char **argv)
         getnumbers(argv[i], &stacks);
         i++;
     }
-    if(duplicated(&stacks))
-        exit(1);
+    if(duplicated(stacks->a))
+        free_exit(&stacks, NULL);
     stacks->size_a = stack_size((*stacks).a);
     initialize_indices(stacks->a);
     set_index((*stacks).a);
     push_swap(&stacks);
     free_stack(&stacks->a);
 	free_stack(&stacks->b);
+    free(stacks);
 }
     

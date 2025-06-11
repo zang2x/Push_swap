@@ -17,18 +17,18 @@ void	rotate(t_node **stack)
 void	do_ra(t_stack **stacks)
 {
 	rotate(&(*stacks)->a);
-	write(1, "ra\n", 4);
+	write(1, "ra\n", 3);
 }
 
 void	do_rb(t_stack **stacks)
 {
 	rotate(&(*stacks)->b);
-	write(1, "rb\n", 4);
+	write(1, "rb\n", 3);
 }
 
 void	do_rr(t_stack **stacks)
 {
 	rotate(&(*stacks)->a);
 	rotate(&(*stacks)->b);
-	write(1, "rr\n", 4);
+	write(1, "rr\n", 3);
 }
