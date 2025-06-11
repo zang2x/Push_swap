@@ -1,25 +1,25 @@
 #include "push_swap.h"
 
-void	push(t_node *src, t_node *dst)
+void push(t_node **src, t_node **dst)
 {
-	t_node	*tmp;
+    t_node *tmp;
 
-	if (src == NULL)
-		return ;
-	tmp = src->next;
-	src->next = dst;
-	dst = src;
-	src = tmp;
+    if (*src == NULL)
+        return;
+    tmp = (*src)->next;
+    (*src)->next = *dst;
+    *dst = *src;
+    *src = tmp;
 }
 
 void	do_pa(t_stack **stacks)
 {
-	push((*stacks)->b, (*stacks)->a);
-	printf("pa\n");
+	push(&(*stacks)->b, &(*stacks)->a);
+	write(1, "pa\n", 4);
 }
 
 void	do_pb(t_stack **stacks)
 {
-	push((*stacks)->a, (*stacks)->b);
-	printf("pb\n");
+	push(&(*stacks)->a, &(*stacks)->b);
+	write(1, "pb\n", 4);
 }

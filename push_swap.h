@@ -3,6 +3,9 @@
 #include <unistd.h>
 #include <stdio.h>
 
+#ifndef PUSH_SWAP_H
+#define PUSH_SWAP_H
+
 typedef struct s_node {
     int number;
     int index;
@@ -44,7 +47,7 @@ void	sort_stack(t_stack **stack);
 void	push_init(t_stack **stack);
 int	biggest_index(t_node *stack);
 int		lowest_pos_index(t_node *stack);
-void	push(t_node *src, t_node *dst);
+void	push(t_node **src, t_node **dst);
 void	do_pa(t_stack **stacks);
 void	do_pb(t_stack **stacks);
 void    set_positions(t_node *stack);
@@ -60,3 +63,7 @@ void	rotate_both(t_stack **stacks, int *cost_a, int *cost_b);
 void	reverse_both(t_stack **stacks, int *cost_a, int *cost_b);
 int	abn(int nb);
 void	do_move(t_stack **stacks, int cost_a, int cost_b);
+void    swap(t_node **stack);
+void	free_stack(t_node **stack);
+
+#endif

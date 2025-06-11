@@ -6,3 +6,20 @@ int	abn(int nb)
 		return (nb * -1);
 	return (nb);
 }
+
+
+void	free_stack(t_node **stack)
+
+{
+	t_node	*tmp;
+
+	if (!stack || !(*stack))
+		return ;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+	*stack = NULL;
+}

@@ -120,6 +120,7 @@ int main(int argc, char **argv)
     initialize_indices(stacks->a);
     set_index((*stacks).a);
     push_swap(&stacks);
-    printf("%d", stacks->a->number);
+    free_stack(&stacks->a);
+	free_stack(&stacks->b);
 }
     

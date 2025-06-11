@@ -48,6 +48,8 @@ void    target_position(t_stack **stacks)
     t_node	*tmp;
 	int		target;
 
+    if((*stacks)->a == NULL || (*stacks)->b == NULL)
+            return;
 	tmp = (*stacks)->b;
 	set_positions((*stacks)->a);
 	set_positions((*stacks)->b);
@@ -90,6 +92,8 @@ void    lowcost_move(t_stack **stacks)
 	int			cost_a;
 	int			cost_b;
 
+    if((*stacks)->b == NULL)
+            return;
 	tmp = (*stacks)->b;
 	cheapest = INT_MAX;
 	while (tmp)

@@ -2,13 +2,16 @@
 
 void rev_rotate(t_node **stack)
 {
-	t_node *last;
-	t_node *new_last;
+	t_node	*last;
+	t_node	*new_last;
 
 	if (!stack || !*stack || !(*stack)->next)
-		return;
-	last = get_lastnb(*stack, 0);
-	new_last = get_lastnb(*stack, 1);
+			return;
+	new_last = *stack;
+	while (new_last->next && new_last->next->next)
+		new_last = new_last->next;
+
+	last = new_last->next;
 	new_last->next = NULL;
 	last->next = *stack;
 	*stack = last;
@@ -17,18 +20,18 @@ void rev_rotate(t_node **stack)
 void	do_rra(t_stack **stacks)
 {
 	rev_rotate(&((*stacks)->a));
-	printf("rra\n");
+	write(1, "rra\n", 5);
 }
 
 void	do_rrb(t_stack **stacks)
 {
-	rev_rotate(&((*stacks)->a));
-	printf("rrb\n");
+	rev_rotate(&((*stacks)->b));
+	write(1, "rrb\n", 5);
 }
 
 void	do_rrr(t_stack **stacks)
 {
 	rev_rotate(&((*stacks)->a));
 	rev_rotate(&((*stacks)->b));
-	printf("rrr\n");
+	write(1, "rrr\n", 5);
 }

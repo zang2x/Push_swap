@@ -65,12 +65,21 @@ void	sort_stack(t_stack **stack)
 	}
 }
 
+void print_stack(t_node *stack)
+{
+    while (stack)
+    {
+        printf("num: %d, idx: %d\n", stack->number, stack->index);
+        stack = stack->next;
+    }
+}
+
 void	sort(t_stack **stack)
 {
 	push_init(stack);
 	sort_three(stack);
 	while ((*stack)->b)
-	{
+	{	
 		target_position(stack);
 		get_cost(stack);
 		lowcost_move(stack);
