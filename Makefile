@@ -18,7 +18,7 @@ MID_GRAY =		\033[38;5;245m
 DARK_GREEN =	\033[38;2;75;179;82m
 DARK_YELLOW =	\033[38;5;143m
 
-SRCS = main.c rev_rot.c fill_stacks.c set_stacks.c sort.c swap.c ft_split.c ft_atoi.c rotate.c
+SRCS = main.c rev_rot.c fill_stacks.c sort.c swap.c ft_split.c ft_atoi.c rotate.c indexs.c moves.c positions.c push_stack.c push_swap_utils.c
 
 INCLUDE = ./push_swap.h
 
@@ -27,7 +27,6 @@ RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 
 %.o: %.c
-			@echo "${BLUE} ◎ $(YELLOW)Compiling   ${RED}→   $(GREEN)$< $(DEF_COLOR)"
 			@${CC} ${CFLAGS} -c $< -o $@
 
 OBJS = ${SRCS:.c=.o}
@@ -36,16 +35,13 @@ all:	${NAME}
 
 ${NAME}: ${OBJS} $(INCLUDE)
 	@${CC} ${SRCS} -o ${NAME}
-	@echo "\n$(GREEN) Created $(NAME) ✓$(DEF_COLOR)\n"
 
 clean:
 			@${RM} ${OBJS}
-			@echo "\n${GRAY} ◎ $(RED)All objects cleaned successfully ${GRAY}◎$(DEF_COLOR)\n"
 
 fclean: 
 			@${RM} ${OBJS}
 			@${RM} ${NAME}
-			@echo "\n${GRAY} ◎ $(RED)All objects and executable cleaned successfully${GRAY} ◎$(DEF_COLOR)\n"
 
 re: fclean all
 

@@ -43,3 +43,39 @@ int     stack_size(t_node *stack)
     }
     return(i);
 }
+
+int	biggest_index(t_node *stack)
+{
+	int	index;
+
+	index = stack->index;
+	while (stack)
+	{
+		if (stack->index > index)
+			index = stack->index;
+		stack = stack->next;
+	}
+	return (index);
+}
+
+int		lowest_pos_index(t_node *stack)
+{
+	t_node	*tmp;
+	int		lowest_i;
+	int		lowest_pos;
+
+	tmp = stack;
+	lowest_i = INT_MAX;
+	set_positions(stack);
+	lowest_pos = tmp->pos;
+	while (tmp)
+	{
+		if (tmp->index < lowest_i)
+		{
+			lowest_i = tmp->index;
+			lowest_pos = tmp->pos;
+		}
+		tmp = tmp->next;
+	}
+	return (lowest_pos);
+}

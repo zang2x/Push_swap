@@ -6,6 +6,10 @@
 typedef struct s_node {
     int number;
     int index;
+    int pos;
+    int target;
+    int cost_a;
+    int cost_b;
     struct s_node *next;
 } t_node;
 
@@ -35,3 +39,24 @@ void	do_rra(t_stack **stacks);
 void	do_rrb(t_stack **stacks);
 void	do_rrr(t_stack **stacks);
 void	do_ra(t_stack **stacks);
+void	sort(t_stack **stack);
+void	sort_stack(t_stack **stack);
+void	push_init(t_stack **stack);
+int	biggest_index(t_node *stack);
+int		lowest_pos_index(t_node *stack);
+void	push(t_node *src, t_node *dst);
+void	do_pa(t_stack **stacks);
+void	do_pb(t_stack **stacks);
+void    set_positions(t_node *stack);
+int    get_target(t_stack **stack, int index, int max, int target);
+void    target_position(t_stack **stacks);
+void    get_cost(t_stack **stacks);
+void    lowcost_move(t_stack **stacks);
+void	do_rr(t_stack **stacks);
+void	do_rb(t_stack **stacks);
+void	rotate_b(t_stack **stacks, int *cost);
+void	rotate_a(t_stack **stacks, int *cost);
+void	rotate_both(t_stack **stacks, int *cost_a, int *cost_b);
+void	reverse_both(t_stack **stacks, int *cost_a, int *cost_b);
+int	abn(int nb);
+void	do_move(t_stack **stacks, int cost_a, int cost_b);

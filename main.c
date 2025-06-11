@@ -50,8 +50,10 @@ void    push_swap(t_stack **stacks)
 {
 	if ((*stacks)->size_a == 2 && !is_sorted((*stacks)->a))
 		do_sa(stacks);
-	else if ((*stacks)->size_a == 3 && !is_sorted((*stacks)->a))
+	if ((*stacks)->size_a == 3 && !is_sorted((*stacks)->a))
 		sort_three(stacks);
+    if((*stacks)->size_a > 3 && !is_sorted((*stacks)->a))
+        sort(stacks);
 }
 
 int    duplicated(t_stack **stacks)
